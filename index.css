@@ -5,15 +5,14 @@ body
 
 .layout
 {
-    font: 14px Arial, sans-serif;
-    line-height: 1.2;
+    font: 14px/1.2 Arial, sans-serif;
     padding: 10px;
     display: grid;
 
     grid-template-columns: 15% 1fr 1fr 1fr 15%;
     grid-template-rows: auto;
-    grid-template-areas: 'city set set set account'
-        'left news news cornAds right'
+    grid-template-areas: 'city settings settings settings account'
+        'left news news smallAds right'
         'logo search search search right'
         'left2 ads ads ads right'
         'left2 widgets widgets widgets right';
@@ -97,14 +96,16 @@ input[id='auto']:checked ~ .layout .autoWidget,
 input[id='weather']:checked ~ .layout .weatherWidget,
 input[id='traffic']:checked ~ .layout .trafficWidget,
 input[id='map']:checked ~ .layout .mapWidget,
-input[id='bill']:checked ~ .layout .billWidget
+input[id='bill']:checked ~ .layout .billWidget,
+input[id='trending']:checked ~ input[id='jokes']:checked ~ .layout .column1,
+input[id='tv']:checked ~ input[id='auto']:checked ~ .layout .column2
 {
     display: none;
 }
 
 .settingsButton
 {
-    grid-area: set;
+    grid-area: settings;
     text-align: right;
     padding: 0 30px;
 }
@@ -243,7 +244,7 @@ body > input
 
 .cornerAds
 {
-    grid-area: cornAds;
+    grid-area: smallAds;
     margin: 0 auto 20px;
 }
 
@@ -344,17 +345,23 @@ body > input
 .widgets
 {
     display: flex;
-    flex-direction: column;
+    /*flex-direction: column;*/
     align-content: flex-start;
     flex-wrap: wrap;
-    max-height: 600px;
+    /*max-height: 600px;*/
 }
 
 .widget
 {
-    width: 33%;
+    /*width: 33%;*/
     margin-bottom: 20px;
     padding-right: 10px;
+}
+
+.widgetColumn
+{
+    width: 33%;
+    /*min-height: 600px;*/
 }
 
 .widgetTitle
